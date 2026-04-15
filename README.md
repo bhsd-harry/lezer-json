@@ -1,3 +1,5 @@
+**This repository has moved to https://code.haverbeke.berlin/lezer/json**
+
 # @lezer/json
 
 This is a JSON grammar for the [lezer](https://lezer.codemirror.net/) parser system.
