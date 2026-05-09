@@ -1,36 +1,56 @@
 {
-  "name": "@lezer/json",
-  "version": "1.0.3",
-  "description": "lezer-based JSON grammar",
-  "main": "dist/index.cjs",
-  "type": "module",
-  "exports": {
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
-  },
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "author": "Arun Srinivasan <rulfzid@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@lezer/generator": "^1.0.0",
-    "mocha": "^10.2.0",
-    "rollup": "^2.52.2",
-    "@rollup/plugin-node-resolve": "^9.0.0"
-  },
-  "dependencies": {
-    "@lezer/common": "^1.2.0",
-    "@lezer/highlight": "^1.0.0",
-    "@lezer/lr": "^1.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://code.haverbeke.berlin/lezer/json.git"
-  },
-  "scripts": {
-    "build": "lezer-generator src/json.grammar -o src/parser && rollup -c",
-    "build-debug": "lezer-generator src/json.grammar --names -o src/parser && rollup -c",
-    "prepare": "npm run build",
-    "test": "npm run build && mocha test/test-json.js"
-  }
+	"name": "@bhsd/lezer-json",
+	"version": "2.0.0",
+	"description": "Lezer-based JSON/JSONC grammar",
+	"keywords": [
+		"codemirror",
+		"lezer",
+		"json",
+		"jsonc"
+	],
+	"homepage": "https://github.com/bhsd-harry/lezer-json#readme",
+	"bugs": {
+		"url": "https://github.com/bhsd-harry/lezer-json/issues"
+	},
+	"license": "MIT",
+	"contributors": [
+		"Arun Srinivasan <rulfzid@gmail.com>",
+		"Marijn Haverbeke <marijn@haverbeke.berlin>",
+		"Bhsd"
+	],
+	"files": [
+		"dist/"
+	],
+	"browser": "dist/index.js",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bhsd-harry/lezer-json.git"
+	},
+	"scripts": {
+		"ls": "npm i --package-lock-only && npm ls --package-lock-only --all --omit=dev",
+		"prepublishOnly": "npm run build",
+		"build:parser": "lezer-generator src/json.grammar -o src/parser.js",
+		"build:core": "tsc && cp src/parser.*js dist/",
+		"build": "npm run build:parser && npm run build:core",
+		"lint:ts": "tsc --noEmit && eslint --cache .",
+		"lint:md": "markdownlint-cli2 '**/*.md'",
+		"lint": "npm run lint:ts && npm run lint:md"
+	},
+	"dependencies": {
+		"@codemirror/language": "^6.12.3",
+		"@codemirror/lint": "^6.9.5"
+	},
+	"devDependencies": {
+		"@bhsd/code-standard": "^2.4.2",
+		"@bhsd/nodejs": "^1.0.0",
+		"@lezer/generator": "^1.8.0",
+		"@typescript-eslint/parser": "^8.59.2",
+		"eslint": "^10.3.0",
+		"markdownlint-cli2": "^0.22.1",
+		"typescript": "^6.0.3"
+	}
 }

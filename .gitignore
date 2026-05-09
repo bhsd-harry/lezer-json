@@ -1,4 +1,5 @@
-/node_modules/
-/src/parser.*
-/dist
-.cache
+/.eslintcache
+/dist/
+/src/parser.*js
+/.vscode/
+/package-lock.json
