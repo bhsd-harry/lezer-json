@@ -1,5 +1,7 @@
 # @bhsd/lezer-json
 
+[![npm version](https://badge.fury.io/js/@bhsd%2Flezer-json.svg)](https://www.npmjs.com/package/@bhsd/lezer-json)
+
 This is a fork of [@lezer/json](https://www.npmjs.com/package/@lezer/json) and [@codemirror/lang-json](https://www.npmjs.com/package/@codemirror/lang-json) that adds a dialect for [JSONC](https://jsonc.org/) to provide support for comments and trailing commas.
 
 ## Installation

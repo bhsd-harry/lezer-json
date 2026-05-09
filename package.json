@@ -43,7 +43,7 @@
 	"dependencies": {
 		"@bhsd/common": "^2.2.1",
 		"@codemirror/language": "^6.12.3",
-		"@codemirror/lint": "^6.9.5"
+		"@codemirror/lint": "^6.9.6"
 	},
 	"devDependencies": {
 		"@bhsd/code-standard": "^2.4.2",
