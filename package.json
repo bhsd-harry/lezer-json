@@ -34,13 +34,14 @@
 		"ls": "npm i --package-lock-only && npm ls --package-lock-only --all --omit=dev",
 		"prepublishOnly": "npm run build",
 		"build:parser": "lezer-generator src/json.grammar -o src/parser.js",
-		"build:core": "tsc && cp src/parser.*js dist/",
+		"build:core": "tsc && cp src/parser.js dist/",
 		"build": "npm run build:parser && npm run build:core",
 		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint:md": "markdownlint-cli2 '**/*.md'",
 		"lint": "npm run lint:ts && npm run lint:md"
 	},
 	"dependencies": {
+		"@bhsd/common": "^2.2.1",
 		"@codemirror/language": "^6.12.3",
 		"@codemirror/lint": "^6.9.5"
 	},

@@ -16,25 +16,27 @@ npm install @bhsd/lezer-json
 import {json} from '@bhsd/lezer-json';
 import type {LanguageSupport} from '@codemirror/language';
 
-const jsoncLanguageSupport: LanguageSupport = json('jsonc');
+const jsonLanguageSupport: LanguageSupport = json(),
+	jsoncLanguageSupport: LanguageSupport = json('jsonc');
 ```
 
 ## Language
 
-You can also import the [LR language](https://codemirror.net/docs/ref/#language.LRLanguage) for JSONC alone.
+You can also import the [LR language](https://codemirror.net/docs/ref/#language.LRLanguage) for JSON or JSONC alone.
 
 ```ts
-import {jsoncLanguage} from '@bhsd/lezer-json';
+import {jsonLanguage, jsoncLanguage} from '@bhsd/lezer-json';
 ```
 
 ## Lint Source
 
-This package also provides a [lint source](https://codemirror.net/docs/ref/#lint.LintSource) for JSONC syntax checking.
+This package also provides [lint sources](https://codemirror.net/docs/ref/#lint.LintSource) for JSON or JSONC syntax checking.
 
 ```ts
 import {linter} from '@codemirror/lint';
-import {jsoncLinter} from '@bhsd/lezer-json';
+import {jsonLinter, jsoncLinter} from '@bhsd/lezer-json';
 import type {Extension} from '@codemirror/state';
 
-const extension: Extension = linter(jsoncLinter);
+const jsonLintExtension: Extension = linter(jsonLinter),
+	jsoncLintExtension: Extension = linter(jsoncLinter);
 ```
