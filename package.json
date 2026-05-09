@@ -46,7 +46,6 @@
 	},
 	"devDependencies": {
 		"@bhsd/code-standard": "^2.4.2",
-		"@bhsd/nodejs": "^1.0.0",
 		"@lezer/generator": "^1.8.0",
 		"@typescript-eslint/parser": "^8.59.2",
 		"eslint": "^10.3.0",

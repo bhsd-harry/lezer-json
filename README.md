@@ -13,10 +13,10 @@ npm install @bhsd/lezer-json
 ## Language Support
 
 ```ts
-import {jsonc} from '@bhsd/lezer-json';
+import {json} from '@bhsd/lezer-json';
 import type {LanguageSupport} from '@codemirror/language';
 
-const langSupport: LanguageSupport = jsonc();
+const jsoncLanguageSupport: LanguageSupport = json('jsonc');
 ```
 
 ## Language
