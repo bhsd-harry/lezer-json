@@ -55,7 +55,7 @@ const getLintSource = (lint: typeof lintJSON): LintSource => ({state: {doc}}) =>
 	.map(({message, from, to = from, severity}): Diagnostic => ({message, severity, from, to}));
 
 /** Lint source for JSON */
-export const jsonLinter = /* @__PURE__ */ getLintSource(lintJSON);
+export const jsonLinter = /* #__PURE__ */ getLintSource(lintJSON);
 
 /** Lint source for JSONC */
-export const jsoncLinter = /* @__PURE__ */ getLintSource(lintJSONC);
+export const jsoncLinter = /* #__PURE__ */ getLintSource(lintJSONC);

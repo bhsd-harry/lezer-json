@@ -22,8 +22,8 @@
 		"dist/"
 	],
 	"browser": "dist/index.js",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"type": "module",
 	"sideEffects": false,
 	"repository": {

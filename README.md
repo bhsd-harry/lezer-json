@@ -1,6 +1,8 @@
 # @bhsd/lezer-json
 
 [![npm version](https://badge.fury.io/js/@bhsd%2Flezer-json.svg)](https://www.npmjs.com/package/@bhsd/lezer-json)
+[![CodeQL](https://github.com/bhsd-harry/lezer-json/actions/workflows/codeql.yml/badge.svg)](https://github.com/bhsd-harry/lezer-json/actions/workflows/codeql.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/5f155a10407b4f449430725db3b1bb47)](https://app.codacy.com/gh/bhsd-harry/lezer-json/dashboard)
 
 This is a fork of [@lezer/json](https://www.npmjs.com/package/@lezer/json) and [@codemirror/lang-json](https://www.npmjs.com/package/@codemirror/lang-json) that adds a dialect for [JSONC](https://jsonc.org/) to provide support for comments and trailing commas.
 
