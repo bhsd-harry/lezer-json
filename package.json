@@ -1,6 +1,6 @@
 {
 	"name": "@bhsd/lezer-json",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"description": "Lezer-based JSON/JSONC grammar",
 	"keywords": [
 		"codemirror",
@@ -34,9 +34,9 @@
 		"ls": "npm i --package-lock-only && npm ls --package-lock-only --all --omit=dev",
 		"prepublishOnly": "npm run build",
 		"build:parser": "lezer-generator src/json.grammar -o src/parser.js",
-		"build:core": "tsc && cp src/parser.js dist/",
+		"build:core": "tsc && cp src/parser.js dist/ && eslint --no-config-lookup -c eslint.dist.js dist/*.js",
 		"build": "npm run build:parser && npm run build:core",
-		"lint:ts": "tsc --noEmit && eslint --cache . && eslint --no-config-lookup -c eslint.dist.js dist/*.js",
+		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint:md": "markdownlint-cli2 '**/*.md'",
 		"lint": "npm run lint:ts && npm run lint:md"
 	},
@@ -50,15 +50,15 @@
 		}
 	},
 	"dependencies": {
-		"@bhsd/common": "^3.0.0"
+		"@bhsd/common": "^4.0.1"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^3.0.0",
-		"@codemirror/language": "^6.12.3",
+		"@bhsd/code-standard": "^3.3.0",
+		"@codemirror/language": "^6.12.4",
 		"@codemirror/lint": "^6.9.7",
 		"@lezer/generator": "^1.8.0",
-		"eslint": "^10.5.0",
-		"markdownlint-cli2": "^0.22.1",
+		"eslint": "^10.7.0",
+		"markdownlint-cli2": "^0.23.1",
 		"typescript": "^6.0.3"
 	}
 }

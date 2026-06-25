@@ -1,11 +1,18 @@
 <!-- markdownlint-disable first-line-h1 -->
+## 2.1.1
+
+*2026-07-20*
+
+**Changed**
+
+- The package is now compatible with ECMAScript 2017
+
 ## 2.1.0
 
 *2026-06-01*
 
 **Changed**
 
-- The package is now compatible with ECMAScript 2017
 - [CodeMirror 6](https://codemirror.net/) packages are now peer dependencies
 
 ## 2.0.0
