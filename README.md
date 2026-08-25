@@ -4,7 +4,10 @@
 [![CodeQL](https://github.com/bhsd-harry/lezer-json/actions/workflows/codeql.yml/badge.svg)](https://github.com/bhsd-harry/lezer-json/actions/workflows/codeql.yml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5f155a10407b4f449430725db3b1bb47)](https://app.codacy.com/gh/bhsd-harry/lezer-json/dashboard)
 
-This is a fork of [@lezer/json](https://www.npmjs.com/package/@lezer/json) and [@codemirror/lang-json](https://www.npmjs.com/package/@codemirror/lang-json) that adds a dialect for [JSONC](https://jsonc.org/) to provide support for comments and trailing commas.
+This is a fork of [@lezer/json](https://www.npmjs.com/package/@lezer/json) and
+[@codemirror/lang-json](https://www.npmjs.com/package/@codemirror/lang-json)
+that adds a dialect for [JSONC](https://jsonc.org/) to provide support for
+comments and trailing commas.
 
 ## Installation
 
@@ -26,7 +29,8 @@ const jsonLanguageSupport: LanguageSupport = json(),
 
 ## Language
 
-You can also import the [LR language](https://codemirror.net/docs/ref/#language.LRLanguage) for JSON or JSONC alone.
+You can also import the [LR language](https://codemirror.net/docs/ref/#language.LRLanguage)
+for JSON or JSONC alone.
 
 ```ts
 import {jsonLanguage, jsoncLanguage} from '@bhsd/lezer-json';
@@ -34,7 +38,8 @@ import {jsonLanguage, jsoncLanguage} from '@bhsd/lezer-json';
 
 ## Lint Source
 
-This package also provides [lint sources](https://codemirror.net/docs/ref/#lint.LintSource) for JSON or JSONC syntax checking.
+This package also provides [lint sources](https://codemirror.net/docs/ref/#lint.LintSource)
+for JSON or JSONC syntax checking.
 
 ```ts
 import {linter} from '@codemirror/lint';
