@@ -1,4 +1,12 @@
 <!-- markdownlint-disable first-line-h1 -->
+## 2.1.3
+
+*2026-09-18*
+
+**Fixed**
+
+- Better tree shaking for `jsonLanguage` and `jsoncLanguage` exports
+
 ## 2.1.2
 
 *2026-08-13*

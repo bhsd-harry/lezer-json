@@ -25,14 +25,14 @@ const props = [
 	};
 
 /** LR language for JSON. */
-export const jsonLanguage = LRLanguage.define({
+export const jsonLanguage = /* #__PURE__ */ (() => LRLanguage.define({
 	name: 'json',
 	parser: parser.configure({props}),
 	languageData,
-});
+}))();
 
 /** LR language for JSONC. */
-export const jsoncLanguage = LRLanguage.define({
+export const jsoncLanguage = /* #__PURE__ */ (() => LRLanguage.define({
 	name: 'jsonc',
 	parser: parser.configure({props, dialect: 'jsonc'}),
 	languageData: {
@@ -42,7 +42,7 @@ export const jsoncLanguage = LRLanguage.define({
 			block: {open: '/*', close: '*/'},
 		},
 	},
-});
+}))();
 
 /**
  * Get language support for JSON or JSONC.
