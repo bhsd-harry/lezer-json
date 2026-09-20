@@ -1,4 +1,12 @@
-<!-- markdownlint-disable first-line-h1 -->
+<!-- markdownlint-disable first-line-h1 line-length -->
+## 2.2.0
+
+*2026-09-25*
+
+**Added**
+
+- Basic [completion source](https://codemirror.net/docs/ref/#autocomplete.CompletionSource) for constants `true`, `false`, and `null`
+
 ## 2.1.3
 
 *2026-09-18*

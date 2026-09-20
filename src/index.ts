@@ -5,10 +5,12 @@ import {
 	foldInside,
 	LRLanguage,
 	LanguageSupport,
+	syntaxTree,
 } from '@codemirror/language';
 import {lintJSON, lintJSONC} from '@bhsd/common';
 import {parser} from './parser.js';
 import type {LintSource, Diagnostic} from '@codemirror/lint';
+import type {CompletionContext, CompletionResult, Completion} from '@codemirror/autocomplete';
 
 const props = [
 		indentNodeProp.add({
@@ -19,9 +21,16 @@ const props = [
 			'Object Array': foldInside,
 		}),
 	],
+	options = ['true', 'false', 'null'].map((label): Completion => ({label, type: 'keyword'})),
 	languageData = {
 		closeBrackets: {brackts: ['[', '{', '"']},
 		indentOnInput: /^\s*[}\]]$/u,
+		autocomplete({state, pos}: CompletionContext): CompletionResult | null {
+			const {name: n, parent: p, from} = syntaxTree(state).resolveInner(pos, -1);
+			return n !== 'PropertyName' && n !== ':' && p?.name === 'Property'
+				? {from, options, validFor: /^[a-z]*$/iu}
+				: null;
+		},
 	};
 
 /** LR language for JSON. */
