@@ -25,10 +25,21 @@ const props = [
 	languageData = {
 		closeBrackets: {brackts: ['[', '{', '"']},
 		indentOnInput: /^\s*[}\]]$/u,
-		autocomplete({state, pos}: CompletionContext): CompletionResult | null {
-			const {name: n, parent: p, from} = syntaxTree(state).resolveInner(pos, -1);
-			return n !== 'PropertyName' && n !== ':' && p?.name === 'Property'
-				? {from, options, validFor: /^[a-z]*$/iu}
+		autocomplete(context: CompletionContext): CompletionResult | null {
+			const mt = context.matchBefore(/(?:^|[[,:])\s*[a-z]+$/u);
+			if (!mt) {
+				return null;
+			}
+			const {state, pos} = context,
+				{name: n, parent: p} = syntaxTree(state).resolveInner(pos, -1),
+				{from, text} = mt;
+			return p?.name === 'Array' && !text.startsWith(':')
+				|| n !== 'PropertyName' && p?.name === 'Property' && !/^[[,]/u.test(text)
+				? {
+					from: from + text.search(/[a-z]/iu),
+					options,
+					validFor: /^[a-z]*$/iu,
+				}
 				: null;
 		},
 	};

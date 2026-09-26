@@ -1,4 +1,12 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
+## 2.2.1
+
+*2026-09-27*
+
+**Fixed**
+
+- Autocompletion now works for array items
+
 ## 2.2.0
 
 *2026-09-25*
