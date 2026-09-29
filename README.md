@@ -19,6 +19,9 @@ npm install @bhsd/lezer-json
 
 ## Language Support
 
+You can directly import the language support that provides both the [language](#language)
+and the basic [completion source](#completion-source) for JSON or JSONC.
+
 ```ts
 import {json} from '@bhsd/lezer-json';
 import type {LanguageSupport} from '@codemirror/language';
@@ -36,10 +39,23 @@ for JSON or JSONC alone.
 import {jsonLanguage, jsoncLanguage} from '@bhsd/lezer-json';
 ```
 
+## Completion Source
+
+If you are importing the [language](#language) alone, you can choose to import
+the completion source which provides basic completion for both JSON and JSONC.
+
+```ts
+import {jsonCompletionSource, jsonLanguage, jsoncLanguage} from '@bhsd/lezer-json';
+import type {Extension} from '@codemirror/state';
+
+const jsonCompletion: Extension = jsonLanguage.data.of({autocomplete: jsonCompletionSource}),
+	jsoncCompletion: Extension = jsoncLanguage.data.of({autocomplete: jsonCompletionSource});
+```
+
 ## Lint Source
 
-This package also provides [lint sources](https://codemirror.net/docs/ref/#lint.LintSource)
-for JSON or JSONC syntax checking.
+This package also provides lint sources for JSON or JSONC syntax checking. This
+is not included in the language support by default.
 
 ```ts
 import {linter} from '@codemirror/lint';

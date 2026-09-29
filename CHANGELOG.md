@@ -1,4 +1,16 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
+## 2.3.0
+
+*2026-10-02*
+
+**Added**
+
+- [`jsonCompletionSource`](./README.md#completion-source) is now exported
+
+**Changed**
+
+- Importing only the [language](./README.md#language) will no longer include the [completion source](./README.md#completion-source)
+
 ## 2.2.1
 
 *2026-09-27*

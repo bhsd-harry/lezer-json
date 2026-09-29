@@ -10,7 +10,7 @@ import {
 import {lintJSON, lintJSONC} from '@bhsd/common';
 import {parser} from './parser.js';
 import type {LintSource, Diagnostic} from '@codemirror/lint';
-import type {CompletionContext, CompletionResult, Completion} from '@codemirror/autocomplete';
+import type {Completion, CompletionSource} from '@codemirror/autocomplete';
 
 const props = [
 		indentNodeProp.add({
@@ -25,23 +25,6 @@ const props = [
 	languageData = {
 		closeBrackets: {brackts: ['[', '{', '"']},
 		indentOnInput: /^\s*[}\]]$/u,
-		autocomplete(context: CompletionContext): CompletionResult | null {
-			const mt = context.matchBefore(/(?:^|[[,:])\s*[a-z]+$/u);
-			if (!mt) {
-				return null;
-			}
-			const {state, pos} = context,
-				{name: n, parent: p} = syntaxTree(state).resolveInner(pos, -1),
-				{from, text} = mt;
-			return p?.name === 'Array' && !text.startsWith(':')
-				|| n !== 'PropertyName' && p?.name === 'Property' && !/^[[,]/u.test(text)
-				? {
-					from: from + text.search(/[a-z]/iu),
-					options,
-					validFor: /^[a-z]*$/iu,
-				}
-				: null;
-		},
 	};
 
 /** LR language for JSON. */
@@ -64,12 +47,32 @@ export const jsoncLanguage = /* #__PURE__ */ (() => LRLanguage.define({
 	},
 }))();
 
+export const jsonCompletionSource: CompletionSource = context => {
+	const mt = context.matchBefore(/(?:^|[[,:])\s*[a-z]+$/u);
+	if (!mt) {
+		return null;
+	}
+	const {state, pos} = context,
+		{name: n, parent: p} = syntaxTree(state).resolveInner(pos, -1),
+		{from, text} = mt;
+	return p?.name === 'Array' && !text.startsWith(':')
+		|| n !== 'PropertyName' && p?.name === 'Property' && !/^[[,]/u.test(text)
+		? {
+			from: from + text.search(/[a-z]/iu),
+			options,
+			validFor: /^[a-z]*$/iu,
+		}
+		: null;
+};
+
 /**
  * Get language support for JSON or JSONC.
  * @param dialect The dialect to use, either omitted or `'jsonc'` for JSON with comments.
  */
-export const json = (dialect?: 'jsonc'): LanguageSupport =>
-	new LanguageSupport(dialect === 'jsonc' ? jsoncLanguage : jsonLanguage);
+export const json = (dialect?: 'jsonc'): LanguageSupport => {
+	const lang = dialect === 'jsonc' ? jsoncLanguage : jsonLanguage;
+	return new LanguageSupport(lang, lang.data.of({autocomplete: jsonCompletionSource}));
+};
 
 const getLintSource = (lint: typeof lintJSON): LintSource => ({state: {doc}}) => lint(doc.toString())
 	.map(({message, from, to = from, severity}): Diagnostic => ({message, severity, from, to}));

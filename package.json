@@ -1,6 +1,6 @@
 {
 	"name": "@bhsd/lezer-json",
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"description": "Lezer-based JSON/JSONC grammar",
 	"keywords": [
 		"codemirror",
@@ -53,7 +53,7 @@
 		"@bhsd/common": "^4.1.0"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^4.2.0",
+		"@bhsd/code-standard": "^4.3.0",
 		"@codemirror/autocomplete": "^6.20.3",
 		"@codemirror/language": "^6.12.4",
 		"@codemirror/lint": "^6.9.7",
