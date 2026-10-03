@@ -38,7 +38,8 @@
 		"build": "npm run build:parser && npm run build:core",
 		"lint:ts": "tsc --noEmit && eslint --cache .",
 		"lint:md": "markdownlint-cli2 '**/*.md'",
-		"lint": "npm run lint:ts && npm run lint:md"
+		"lint": "npm run lint:ts && npm run lint:md",
+		"test": "echo 'This package has no tests.'"
 	},
 	"peerDependencies": {
 		"@codemirror/language": "^6.0.0",
@@ -57,8 +58,8 @@
 		"@codemirror/autocomplete": "^6.20.3",
 		"@codemirror/language": "^6.12.4",
 		"@codemirror/lint": "^6.9.7",
-		"@lezer/generator": "^1.8.0",
-		"eslint": "^10.11.0",
+		"@lezer/generator": "^1.8.1",
+		"eslint": "^10.12.0",
 		"markdownlint-cli2": "^0.23.3",
 		"typescript": "^6.0.3"
 	}
