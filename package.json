@@ -37,7 +37,7 @@
 		"build:core": "tsc && cp src/parser.js dist/ && eslint --no-config-lookup -c eslint.dist.js dist/*.js",
 		"build": "npm run build:parser && npm run build:core",
 		"lint:ts": "tsc --noEmit && eslint --cache .",
-		"lint:md": "markdownlint-cli2 '**/*.md'",
+		"lint:md": "myMarkdownlint",
 		"lint": "npm run lint:ts && npm run lint:md",
 		"test": "echo 'This package has no tests.'"
 	},
@@ -54,13 +54,12 @@
 		"@bhsd/common": "^4.1.0"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^4.3.0",
+		"@bhsd/code-standard": "^5.0.0",
 		"@codemirror/autocomplete": "^6.20.3",
-		"@codemirror/language": "^6.12.4",
+		"@codemirror/language": "^6.13.1",
 		"@codemirror/lint": "^6.9.7",
 		"@lezer/generator": "^1.8.1",
 		"eslint": "^10.12.0",
-		"markdownlint-cli2": "^0.23.3",
 		"typescript": "^6.0.3"
 	}
 }
