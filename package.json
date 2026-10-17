@@ -21,7 +21,6 @@
 	"files": [
 		"dist/"
 	],
-	"browser": "dist/index.js",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"type": "module",
@@ -31,7 +30,7 @@
 		"url": "git+https://github.com/bhsd-harry/lezer-json.git"
 	},
 	"scripts": {
-		"ls": "npm i --package-lock-only && npm ls --package-lock-only --all --omit=dev",
+		"ls": "npm i --package-lock-only && npm ls --package-lock-only -a --omit=dev",
 		"prepublishOnly": "npm run build",
 		"build:parser": "lezer-generator src/json.grammar -o src/parser.js",
 		"build:core": "tsc && cp src/parser.js dist/ && eslint --no-config-lookup -c eslint.dist.js dist/*.js",
@@ -55,11 +54,11 @@
 	},
 	"devDependencies": {
 		"@bhsd/code-standard": "^5.0.0",
-		"@codemirror/autocomplete": "^6.20.3",
+		"@codemirror/autocomplete": "^6.20.4",
 		"@codemirror/language": "^6.13.1",
 		"@codemirror/lint": "^6.9.7",
 		"@lezer/generator": "^1.8.1",
-		"eslint": "^10.12.0",
+		"eslint": "^10.13.0",
 		"typescript": "^6.0.3"
 	}
 }
