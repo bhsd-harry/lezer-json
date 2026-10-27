@@ -35,9 +35,10 @@
 		"build:parser": "lezer-generator src/json.grammar -o src/parser.js",
 		"build:core": "tsc && cp src/parser.js dist/ && eslint --no-config-lookup -c eslint.dist.js dist/*.js",
 		"build": "npm run build:parser && npm run build:core",
-		"lint:ts": "tsc --noEmit && eslint --cache .",
+		"lint:ts": "tsc --noEmit && oxlint && eslint --cache .",
 		"lint:md": "myMarkdownlint",
 		"lint": "npm run lint:ts && npm run lint:md",
+		"migrate": "oxlint-migrate",
 		"test": "echo 'This package has no tests.'"
 	},
 	"peerDependencies": {
@@ -53,12 +54,14 @@
 		"@bhsd/common": "^4.1.0"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^5.0.0",
+		"@bhsd/code-standard": "^5.1.0",
 		"@codemirror/autocomplete": "^6.20.4",
 		"@codemirror/language": "^6.13.1",
 		"@codemirror/lint": "^6.9.7",
 		"@lezer/generator": "^1.8.1",
-		"eslint": "^10.13.0",
+		"@oxlint/migrate": "^1.89.0",
+		"eslint": "^10.14.0",
+		"oxlint": "^1.89.0",
 		"typescript": "^6.0.3"
 	}
 }
