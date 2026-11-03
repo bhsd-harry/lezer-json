@@ -1,4 +1,13 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
+## 2.3.1
+
+*2026-11-13*
+
+**Fixed**
+
+- Configuration for [closeBrackets](https://codemirror.net/docs/ref/#autocomplete.closeBrackets) is now correctly applied
+- Inappropriate autocompletion suggestions inside strings
+
 ## 2.3.0
 
 *2026-10-02*

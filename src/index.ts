@@ -23,7 +23,7 @@ const props = [
 	],
 	options = ['true', 'false', 'null'].map((label): Completion => ({label, type: 'keyword'})),
 	languageData = {
-		closeBrackets: {brackts: ['[', '{', '"']},
+		closeBrackets: {brackets: ['[', '{', '"']},
 		indentOnInput: /^\s*[}\]]$/u,
 	};
 
@@ -55,8 +55,11 @@ export const jsonCompletionSource: CompletionSource = context => {
 	const {state, pos} = context,
 		{name: n, parent: p} = syntaxTree(state).resolveInner(pos, -1),
 		{from, text} = mt;
-	return p?.name === 'Array' && !text.startsWith(':')
+	return n !== 'String' && (
+		p?.name === 'Array' && !text.startsWith(':')
 		|| n !== 'PropertyName' && p?.name === 'Property' && !/^[[,]/u.test(text)
+		|| p?.name === 'JsonText' && /^[\sa-z]/u.test(text)
+	)
 		? {
 			from: from + text.search(/[a-z]/iu),
 			options,
