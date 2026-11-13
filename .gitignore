@@ -1,6 +1,6 @@
 /.eslintcache
 /.coderabbit.yaml
-/dist/
+dist/
 /src/parser.*js
 /.vscode/
 /package-lock.json

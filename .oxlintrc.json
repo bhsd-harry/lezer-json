@@ -214,6 +214,8 @@
 		"unicorn/prefer-array-flat-map": "error",
 		"unicorn/prefer-array-index-of": "error",
 		"unicorn/prefer-array-some": "error",
+		"unicorn/prefer-at": "error",
+		"unicorn/prefer-bigint-literals": "error",
 		"unicorn/prefer-class-fields": "error",
 		"unicorn/prefer-classlist-toggle": "error",
 		"unicorn/prefer-code-point": "error",
@@ -231,6 +233,7 @@
 		"unicorn/prefer-math-min-max": "error",
 		"unicorn/prefer-native-coercion-functions": "error",
 		"unicorn/prefer-negative-index": "error",
+		"unicorn/prefer-object-from-entries": "error",
 		"unicorn/prefer-optional-catch-binding": "error",
 		"unicorn/prefer-prototype-methods": "error",
 		"unicorn/prefer-reflect-apply": "error",
@@ -238,6 +241,7 @@
 		"unicorn/prefer-single-call": "error",
 		"unicorn/prefer-spread": "error",
 		"unicorn/prefer-string-raw": "error",
+		"unicorn/prefer-string-replace-all": "error",
 		"unicorn/prefer-string-starts-ends-with": "error",
 		"unicorn/prefer-ternary": "error",
 		"unicorn/require-module-attributes": "error",
@@ -588,6 +592,17 @@
 			"plugins": [
 				"typescript"
 			]
+		},
+		{
+			"files": [
+				"src/*.ts"
+			],
+			"rules": {
+				"unicorn/prefer-at": "off",
+				"unicorn/prefer-bigint-literals": "off",
+				"unicorn/prefer-object-from-entries": "off",
+				"unicorn/prefer-string-replace-all": "off"
+			}
 		}
 	],
 	"options": {
